@@ -6,7 +6,7 @@ export const StyledBanner = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  padding: 2.5rem;
+  padding: 5rem;
 
   text-align: center;
   color: #fff;
@@ -19,4 +19,5 @@ export const Title = styled.h2`
 
 export const SubTitle = styled.h3`
   font-weight: 500;
+  font-size: 1rem;
 `;
