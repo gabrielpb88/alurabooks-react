@@ -18,4 +18,9 @@ export const Input = styled.input`
     background-position-x: 8.5rem;
     color: #fff;
   }
+
+  :focus::placeholder {
+    color: transparent;
+    background-image: none;
+  }
 `;
