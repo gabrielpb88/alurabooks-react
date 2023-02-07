@@ -11,6 +11,8 @@
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@types/styled-components": "^5.1.26",
+    "alurabooks-ds-gb": "^0.3.2",
+    "ds-alurabooks": "^0.5.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.0",
