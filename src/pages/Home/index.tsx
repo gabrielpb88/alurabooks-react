@@ -1,5 +1,6 @@
 import Title from '../../components/Title';
 import HighlightBooks from '../../components/HighlightBooks';
+import Newsletter from '../../components/Newsletter';
 
 const Home = () => {
   const lancamentos = [
@@ -55,6 +56,8 @@ const Home = () => {
 
       <Title>Mais vendidos</Title>
       <HighlightBooks books={maisVendidos} />
+
+      <Newsletter />
     </main>
   );
 };
