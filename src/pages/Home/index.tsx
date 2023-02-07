@@ -1,6 +1,7 @@
 import Title from '../../components/Title';
 import HighlightBooks from '../../components/HighlightBooks';
 import Newsletter from '../../components/Newsletter';
+import CategoryGroup from '../../components/CategoryGroup';
 
 const Home = () => {
   const lancamentos = [
@@ -49,6 +50,18 @@ const Home = () => {
       preco: 29.9,
     },
   ];
+
+  const tags = [
+    'Android',
+    'Orientação a Objetos',
+    'Marketing Digital',
+    'Agile',
+    'Startups',
+    'HTML & CSS',
+    'Java',
+    'Python',
+  ];
+
   return (
     <main>
       <Title>Últimos Lançamentos</Title>
@@ -56,7 +69,7 @@ const Home = () => {
 
       <Title>Mais vendidos</Title>
       <HighlightBooks books={maisVendidos} />
-
+      <CategoryGroup categories={tags} />
       <Newsletter />
     </main>
   );
