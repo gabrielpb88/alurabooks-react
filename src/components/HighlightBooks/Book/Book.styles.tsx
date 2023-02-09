@@ -32,7 +32,6 @@ export const CardPrice = styled.strong`
 export const Footer = styled.footer`
   display: flex;
   justify-content: space-between;
-  position: relative;
 `;
 
 export const ButtonWrapper = styled.div`
