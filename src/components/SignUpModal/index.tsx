@@ -1,9 +1,15 @@
-import { AbButton, AbModal, AbTextField, ModalProps } from 'alurabooks-ds-gb';
+import { AbButton, AbModal, AbTextField } from 'alurabooks-ds-gb';
 import signup from './assets/signup.svg';
 import { useState } from 'react';
 import { ButtonWrapper, FormWrapper, Logo, LogoWrapper, ModalContentWrapper } from './SignUpModal.styles';
+import axios from 'axios';
 
-const SignUpModal = ({ open, onClose }: ModalProps) => {
+interface SignUpModalProps {
+  open: boolean;
+  onClose: () => void;
+}
+
+const SignUpModal = ({ open, onClose }: SignUpModalProps) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [address, setAddress] = useState('');
@@ -11,6 +17,32 @@ const SignUpModal = ({ open, onClose }: ModalProps) => {
   const [zipCode, setZipCode] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+
+  const onSubmitForm = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const user = {
+      nome: name,
+      email: email,
+      senha: password,
+      endereco: address,
+      complemento: address2,
+      cep: zipCode,
+    };
+    axios
+      .post('http://localhost:8000/public/registrar', user)
+      .then((response) => {
+        setName('');
+        setAddress('');
+        setAddress2('');
+        setEmail('');
+        setZipCode('');
+        setPassword('');
+        setConfirmPassword('');
+        onClose();
+      })
+      .catch((e) => alert('Ocorreu um erro durante seu cadastro e ele não foi concluído.'));
+  };
 
   return (
     <AbModal title="Cadastro" open={open} onClose={onClose}>
@@ -22,7 +54,7 @@ const SignUpModal = ({ open, onClose }: ModalProps) => {
           />
         </LogoWrapper>
         <FormWrapper>
-          <form>
+          <form onSubmit={onSubmitForm}>
             <AbTextField
               label="Nome"
               placeholder="Seu nome completo"
