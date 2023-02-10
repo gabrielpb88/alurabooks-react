@@ -1,8 +1,8 @@
 import { AbButton, AbModal, AbTextField } from 'alurabooks-ds-gb';
-import signup from './assets/signup.svg';
+import signup from '../../assets/signup.svg';
 import { useState } from 'react';
 import { ButtonWrapper, FormWrapper, Logo, LogoWrapper, ModalContentWrapper } from './SignUpModal.styles';
-import axios from 'axios';
+import { http } from '../../http';
 
 interface SignUpModalProps {
   open: boolean;
@@ -29,9 +29,9 @@ const SignUpModal = ({ open, onClose }: SignUpModalProps) => {
       complemento: address2,
       cep: zipCode,
     };
-    axios
-      .post('http://localhost:8000/public/registrar', user)
-      .then((response) => {
+    http
+      .post('/public/registrar', user)
+      .then(() => {
         setName('');
         setAddress('');
         setAddress2('');
@@ -41,7 +41,9 @@ const SignUpModal = ({ open, onClose }: SignUpModalProps) => {
         setConfirmPassword('');
         onClose();
       })
-      .catch((e) => alert('Ocorreu um erro durante seu cadastro e ele não foi concluído.'));
+      .catch((error) => {
+        alert(`Erro: ${error.response.data.message}`);
+      });
   };
 
   return (
