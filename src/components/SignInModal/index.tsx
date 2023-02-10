@@ -4,6 +4,7 @@ import { FormEvent, useState } from 'react';
 import { FormWrapper, InputsWrapper, ModalContentWrapper, ModalFooter } from './SignIModal.styles';
 import { Link } from 'react-router-dom';
 import { http } from '../../http';
+import { useSaveToken } from '../../hooks';
 
 interface SignInModalProps {
   open: boolean;
@@ -13,6 +14,7 @@ interface SignInModalProps {
 export const SignInModal = ({ open, onClose }: SignInModalProps) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const saveToken = useSaveToken();
 
   const onSubmitForm = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -25,7 +27,7 @@ export const SignInModal = ({ open, onClose }: SignInModalProps) => {
     http
       .post('/public/login', user)
       .then((response) => {
-        sessionStorage.setItem('token', response.data.access_token);
+        saveToken(response.data.access_token);
         setEmail('');
         setPassword('');
         onClose();
