@@ -2,6 +2,9 @@ import Title from '../../components/Title';
 import HighlightBooks from '../../components/HighlightBooks';
 import Newsletter from '../../components/Newsletter';
 import CategoryGroup from '../../components/CategoryGroup';
+import { Input } from '../../components/Input';
+import { Banner } from '../../components/Banner';
+import React, { useState } from 'react';
 
 const Home = () => {
   const lancamentos = [
@@ -62,8 +65,15 @@ const Home = () => {
     'Python',
   ];
 
+  const [busca, setBusca] = useState('');
+
   return (
     <main>
+      <Banner
+        titulo="Já sabe por onde começar?"
+        subtitulo="Encontre em nossa estante o que precisa para seu desenvolvimento!">
+        <Input placeholder="Qual será sua próxima leitura?" value={busca} onChange={(e) => setBusca(e.target.value)} />
+      </Banner>
       <Title>Últimos Lançamentos</Title>
       <HighlightBooks books={lancamentos} />
 
