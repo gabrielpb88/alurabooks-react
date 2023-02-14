@@ -9,9 +9,10 @@ import { useSaveToken } from '../../hooks';
 interface SignInModalProps {
   open: boolean;
   onClose: () => void;
+  onLogin: () => void;
 }
 
-export const SignInModal = ({ open, onClose }: SignInModalProps) => {
+export const SignInModal = ({ open, onClose, onLogin }: SignInModalProps) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const saveToken = useSaveToken();
@@ -31,6 +32,7 @@ export const SignInModal = ({ open, onClose }: SignInModalProps) => {
         setEmail('');
         setPassword('');
         onClose();
+        onLogin();
       })
       .catch((error) => {
         if (error?.response?.data?.message) {

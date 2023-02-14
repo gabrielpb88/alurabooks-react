@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link as RouterLink } from 'react-router-dom';
 
 export const StyledHeader = styled.header`
   display: flex;
@@ -35,4 +36,10 @@ export const Action = styled.li`
   display: flex;
   align-items: center;
   cursor: pointer;
+`;
+
+export const Link = styled(RouterLink)`
+  text-decoration: none;
+  color: inherit;
+  text-transform: uppercase;
 `;
