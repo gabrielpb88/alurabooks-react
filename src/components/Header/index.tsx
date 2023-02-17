@@ -6,10 +6,12 @@ import { useState } from 'react';
 import SignUpModal from '../SignUpModal';
 import { SignInModal } from 'components/SignInModal';
 import { useGetToken } from '../../hooks';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const [openSignUpModal, setOpenSignUpModal] = useState(false);
   const [openSignInModal, setOpenSignInModal] = useState(false);
+  const navigate = useNavigate();
 
   const token = useGetToken();
   const [userLogged, setUserLogged] = useState(!!token);
@@ -17,6 +19,38 @@ const Header = () => {
   const onLogin = () => {
     setUserLogged(true);
   };
+
+  const logout = () => {
+    setUserLogged(false);
+    sessionStorage.removeItem('token');
+    navigate('/');
+  };
+
+  const loggedInActions = (
+    <>
+      <li>
+        <Link to="/minha-conta/pedidos">Minha conta</Link>
+      </li>
+      <li>
+        <NavigationButton imgSrc={userIcon} alt="Icone de um usuario" onClick={logout}>
+          Logout
+        </NavigationButton>
+      </li>
+    </>
+  );
+
+  const loggedOutActions = (
+    <Action>
+      <NavigationButton imgSrc={userIcon} alt="Icone de um usuario" onClick={() => setOpenSignInModal(true)}>
+        Login
+      </NavigationButton>
+      <SignInModal open={openSignInModal} onClose={() => setOpenSignInModal(false)} onLogin={onLogin} />
+      <NavigationButton imgSrc={userIcon} alt="Icone de um usuario" onClick={() => setOpenSignUpModal(true)}>
+        Cadastro
+      </NavigationButton>
+      <SignUpModal open={openSignUpModal} onClose={() => setOpenSignUpModal(false)} />
+    </Action>
+  );
 
   return (
     <StyledHeader>
@@ -26,27 +60,7 @@ const Header = () => {
           <MenuItem>Categorias</MenuItem>
         </MenuList>
       </Menu>
-      <Actions>
-        {!userLogged && (
-          <Action>
-            <NavigationButton imgSrc={userIcon} alt="Icone de um usuario" onClick={() => setOpenSignInModal(true)}>
-              Login
-            </NavigationButton>
-            <NavigationButton imgSrc={userIcon} alt="Icone de um usuario" onClick={() => setOpenSignUpModal(true)}>
-              Cadastro
-            </NavigationButton>
-          </Action>
-        )}
-        {userLogged && (
-          <>
-            <li>
-              <Link to="/minha-conta/pedidos">Minha conta</Link>
-            </li>
-          </>
-        )}
-      </Actions>
-      <SignUpModal open={openSignUpModal} onClose={() => setOpenSignUpModal(false)} />
-      <SignInModal open={openSignInModal} onClose={() => setOpenSignInModal(false)} onLogin={onLogin} />
+      <Actions>{userLogged ? loggedInActions : loggedOutActions}</Actions>
     </StyledHeader>
   );
 };

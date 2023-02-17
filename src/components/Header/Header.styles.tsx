@@ -30,6 +30,7 @@ export const MenuItem = styled.li`
 export const Actions = styled.ul`
   list-style: none;
   display: flex;
+  align-items: center;
 `;
 
 export const Action = styled.li`
