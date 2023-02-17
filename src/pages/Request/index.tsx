@@ -1,43 +1,57 @@
 import { AbButton } from 'alurabooks-ds-gb';
 import { ButtonWrapper, H2, Hr, PageWrapper, RequestsWrapper, RequestWrapper } from './Request.styles';
+import { useEffect, useState } from 'react';
+import { http } from '../../http';
+import { IRequest } from '../../types';
 
 const Request = () => {
-  const pedidos = [
-    { pedido: 89019041, date: '26/05/2022', value: 48, deliveredAt: '30/05/2022' },
-    { pedido: 89019040, date: '24/03/2022', value: 65.66, deliveredAt: '30/03/2022' },
-  ];
+  const [requests, setRequests] = useState<IRequest[]>([]);
+
+  useEffect(() => {
+    const token = sessionStorage.getItem('token');
+    http
+      .get<IRequest[]>('/pedidos', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        setRequests(res.data);
+      });
+  }, []);
+
   return (
     <PageWrapper>
       <H2>Pedidos</H2>
       <RequestsWrapper>
-        {pedidos.map((produto, index, array) => {
+        {requests.map((pedido, index, array) => {
           return (
-            <>
-              <RequestWrapper key={produto.pedido}>
+            <div key={pedido.id}>
+              <RequestWrapper>
                 <p>
-                  Pedido: <span>{produto.pedido}</span>
+                  Pedido: <strong>{pedido.id}</strong>
                 </p>
                 <p>
-                  Pedido: <span>{produto.date}</span>
+                  Data do pedido: <strong>{new Date(pedido.data).toLocaleDateString()}</strong>
                 </p>
                 <p>
-                  Pedido:{' '}
-                  <span>
+                  Valor total:{' '}
+                  <strong>
                     {Intl.NumberFormat('pt-br', {
                       style: 'currency',
                       currency: 'brl',
-                    }).format(produto.value)}
-                  </span>
+                    }).format(pedido.total)}
+                  </strong>
                 </p>
                 <p>
-                  Pedido: <span>{produto.deliveredAt}</span>
+                  Entrega realizada em: <strong>{pedido.entrega}</strong>
                 </p>
                 <ButtonWrapper>
                   <AbButton>Detalhes</AbButton>
                 </ButtonWrapper>
               </RequestWrapper>
               {index + 1 < array.length && <Hr />}
-            </>
+            </div>
           );
         })}
       </RequestsWrapper>

@@ -5,3 +5,10 @@ export interface IBook {
   nome: string;
   preco: number;
 }
+
+export interface IRequest {
+  id: number;
+  data: string;
+  entrega: string;
+  total: number;
+}
