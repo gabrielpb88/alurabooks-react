@@ -1,3 +1,5 @@
 export const useRemoveToken = () => {
-  sessionStorage.removeItem('token');
+  return () => {
+    sessionStorage.removeItem('token');
+  };
 };

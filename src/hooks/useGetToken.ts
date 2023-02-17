@@ -1,3 +1,5 @@
 export const useGetToken = () => {
-  return sessionStorage.getItem('token');
+  return () => {
+    return sessionStorage.getItem('token');
+  };
 };

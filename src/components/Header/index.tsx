@@ -5,15 +5,17 @@ import { NavigationButton } from './NavigationButton';
 import { useState } from 'react';
 import SignUpModal from '../SignUpModal';
 import { SignInModal } from 'components/SignInModal';
-import { useGetToken } from '../../hooks';
+import { useGetToken, useRemoveToken } from '../../hooks';
 import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const [openSignUpModal, setOpenSignUpModal] = useState(false);
   const [openSignInModal, setOpenSignInModal] = useState(false);
   const navigate = useNavigate();
+  const removeToken = useRemoveToken();
+  const getToken = useGetToken();
 
-  const token = useGetToken();
+  const token = getToken();
   const [userLogged, setUserLogged] = useState(!!token);
 
   const onLogin = () => {
@@ -22,7 +24,7 @@ const Header = () => {
 
   const logout = () => {
     setUserLogged(false);
-    sessionStorage.removeItem('token');
+    removeToken();
     navigate('/');
   };
 
