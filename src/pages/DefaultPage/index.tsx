@@ -1,12 +1,12 @@
 import React from 'react';
-import Header from '../../components/Header';
+import NavigationBar from '../../components/NavigationBar';
 import { Footer } from '../../components/Footer';
 import { Outlet } from 'react-router-dom';
 
 const DefaultPage = () => {
   return (
     <>
-      <Header />
+      <NavigationBar />
       <Outlet />
       <Footer />
     </>

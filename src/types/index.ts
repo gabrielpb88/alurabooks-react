@@ -12,3 +12,9 @@ export interface IRequest {
   entrega: string;
   total: number;
 }
+
+export interface ICategorie {
+  id: number;
+  nome: string;
+  slug: string;
+}
