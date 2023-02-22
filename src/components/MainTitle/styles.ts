@@ -1,0 +1,10 @@
+import styled from 'styled-components';
+
+export const Title = styled.h1`
+  padding: 32px 0;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 12px;
+  color: #fff;
+  background: linear-gradient(97.54deg, #002f52 35.49%, #326589 165.37%);
+`;

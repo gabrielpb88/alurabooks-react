@@ -9,7 +9,6 @@ import { useGetToken, useRemoveToken } from '../../hooks';
 import { useNavigate } from 'react-router-dom';
 import { ICategorie } from '../../types';
 import { http } from '../../http';
-import CategoryGroup from '../CategoryGroup';
 
 const Header = () => {
   const [openSignUpModal, setOpenSignUpModal] = useState(false);
@@ -76,7 +75,7 @@ const Header = () => {
         <Categories>
           {categories.map((categorie) => (
             <li key={categorie.id}>
-              <Link to="#">{categorie.nome}</Link>
+              <Link to={`/categorias/${categorie.slug}`}>{categorie.nome}</Link>
             </li>
           ))}
         </Categories>
