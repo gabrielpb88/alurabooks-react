@@ -15,16 +15,16 @@ const HighlightBooks = ({ books }: HighlightBooksProps) => {
       <Books>
         {books.map((book) => (
           <Image
-            key={book.nome}
-            src={book.imagem}
-            alt={`Capa do livro ${book.nome} escrito por ${book.autor}`}
-            selected={selectedBook.nome === book.nome}
+            key={book.titulo}
+            src={book.imagemCapa}
+            alt={`Capa do livro ${book.titulo} escrito por ${book.autor}`}
+            selected={selectedBook.titulo === book.titulo}
             onClick={() => setSelectedBook(book)}
           />
         ))}
       </Books>
       <AbCard>
-        <Book {...selectedBook} />
+        <Book book={selectedBook} />
       </AbCard>
     </Section>
   );

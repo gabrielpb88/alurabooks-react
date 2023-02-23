@@ -1,23 +1,23 @@
 import { ButtonWrapper, CardDescription, CardEm, CardPrice, CardTitle, Footer, H4 } from './Book.styles';
 import { AbButton } from 'alurabooks-ds-gb';
+import { IBook } from '../../../types';
 
 export interface BookProps {
-  nome: string;
-  descricao: string;
-  autor: string;
-  preco: number;
+  book: IBook;
 }
 
-const Book = ({ nome, descricao, autor, preco }: BookProps) => (
+const Book = ({ book }: BookProps) => (
   <>
     <H4>Sobre o livro:</H4>
-    <CardTitle>{nome}</CardTitle>
-    <CardDescription>{descricao}</CardDescription>
-    <CardDescription>Por: {autor}</CardDescription>
+    <CardTitle>{book.titulo}</CardTitle>
+    <CardDescription>{book.descricao}</CardDescription>
+    <CardDescription>Por: {book.autor}</CardDescription>
     <Footer>
       <div>
         <CardEm>A partir de:</CardEm>
-        <CardPrice>{Intl.NumberFormat('pt-br', { style: 'currency', currency: 'brl' }).format(preco)}</CardPrice>
+        <CardPrice>
+          {Intl.NumberFormat('pt-br', { style: 'currency', currency: 'brl' }).format(book.opcoesCompra[0].preco)}
+        </CardPrice>
       </div>
       <ButtonWrapper>
         <AbButton>Comprar</AbButton>

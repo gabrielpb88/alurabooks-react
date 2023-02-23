@@ -11,3 +11,13 @@ export const getCategoryBySlug = async (slug: string) => {
 
   return res.data[0];
 };
+
+export const getBestSellers = async () => {
+  const res = await http.get('public/mais-vendidos');
+  return res.data;
+};
+
+export const getNewReleases = async () => {
+  const res = await http.get('public/lancamentos');
+  return res.data;
+};

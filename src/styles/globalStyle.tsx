@@ -13,3 +13,7 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 `;
+
+export const DefaultTheme = {
+  primaryColor: '#002F52',
+};

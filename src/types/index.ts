@@ -1,9 +1,16 @@
 export interface IBook {
-  autor: string;
+  id: number;
+  categoria: number;
+  titulo: string;
+  slug: string;
   descricao: string;
-  imagem: string;
-  nome: string;
-  preco: number;
+  isbn: string;
+  numeroPaginas: number;
+  publicacao: string;
+  imagemCapa: string;
+  autor: number;
+  opcoesCompra: IOpcaoCompra[];
+  sobre: string;
 }
 
 export interface IRequest {
@@ -17,4 +24,11 @@ export interface ICategorie {
   id: number;
   nome: string;
   slug: string;
+}
+
+export interface IOpcaoCompra {
+  id: number;
+  titulo: string;
+  preco: number;
+  formatos?: string[];
 }
