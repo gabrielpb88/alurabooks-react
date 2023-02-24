@@ -4,6 +4,7 @@ import { useQuery } from 'react-query';
 import { getCategoryBySlug } from '../../http';
 import Loader from '../Loader';
 import { LoaderWrapper } from './styles';
+import ListBooks from '../ListBooks';
 
 const Category = () => {
   const params = useParams();
@@ -20,6 +21,7 @@ const Category = () => {
   return (
     <section>
       <MainTitle text={data.nome} />
+      <ListBooks categorie={data} />
     </section>
   );
 };

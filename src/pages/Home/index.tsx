@@ -1,9 +1,9 @@
-import Title from '../../components/Title';
-import HighlightBooks from '../../components/HighlightBooks';
-import Newsletter from '../../components/Newsletter';
-import CategoryGroup from '../../components/CategoryGroup';
-import { Input } from '../../components/Input';
-import { Banner } from '../../components/Banner';
+import Title from 'components/Title';
+import HighlightBooks from 'components/HighlightBooks';
+import Newsletter from 'components/Newsletter';
+import CategoryGroup from 'components/CategoryGroup';
+import { Input } from 'components/Input';
+import { Banner } from 'components/Banner';
 import React, { useState } from 'react';
 import { getBestSellers, getNewReleases } from '../../http';
 import { useQuery } from 'react-query';
