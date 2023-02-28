@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import MyAccount from './pages/MyAccount';
 import Request from './pages/Request';
 import Category from './components/Category';
+import BookDetails from './pages/BookDetails';
 
 function AppRouter() {
   return (
@@ -16,6 +17,7 @@ function AppRouter() {
             <Route path="pedidos" element={<Request />} />
           </Route>
           <Route path="/categorias/:slug" element={<Category />} />
+          <Route path="/livros/:id" element={<BookDetails />} />
         </Route>
       </Routes>
     </BrowserRouter>

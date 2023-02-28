@@ -32,3 +32,9 @@ export interface IOpcaoCompra {
   preco: number;
   formatos?: string[];
 }
+
+export interface IAuthor {
+  id: number;
+  nome: string;
+  sobre: string;
+}

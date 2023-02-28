@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { IBook, ICategorie } from '../types';
+import { IAuthor, IBook, ICategorie } from '../types';
 
 export const http = axios.create({ baseURL: 'http://localhost:8000/' });
 
@@ -30,4 +30,24 @@ export const getBooksByCategory = async (categorie: ICategorie) => {
     },
   });
   return res.data;
+};
+
+export const getBook = async (id: string) => {
+  const res = await http.get<IBook[]>('livros', {
+    params: {
+      id,
+    },
+  });
+  return res.data[0];
+};
+
+export const getAuthor = async (id: number | undefined) => {
+  if (!id) return '';
+
+  const res = await http.get<IAuthor[]>('autores', {
+    params: {
+      id,
+    },
+  });
+  return res.data[0];
 };

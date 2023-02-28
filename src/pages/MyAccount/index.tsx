@@ -1,4 +1,4 @@
-import { Link, NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 import { AccountWrapper, Head, List, Section } from './MyAccount.styles';
 
 const MyAccount = () => {
