@@ -69,7 +69,9 @@ const Header = () => {
 
   return (
     <Menu>
-      <Icon src={logo} alt="Logo da Alurabooks" />
+      <Link to="/">
+        <Icon src={logo} alt="Logo da Alurabooks" />
+      </Link>
       <MenuList>
         <MenuItem>Categorias</MenuItem>
         <Categories>
