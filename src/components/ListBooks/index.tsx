@@ -10,7 +10,6 @@ interface ListBooksProps {
 
 const ListBooks = ({ categorie }: ListBooksProps) => {
   const { data: products } = useQuery(['getBooksByCategory', categorie.slug], () => getBooksByCategory(categorie));
-  console.log(products);
   return (
     <BooksWrapper>
       {products?.map((product) => (
