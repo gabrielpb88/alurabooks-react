@@ -3,6 +3,7 @@ import { ButtonWrapper, H2, Hr, PageWrapper, RequestsWrapper, RequestWrapper } f
 import { useEffect, useState } from 'react';
 import { http } from '../../http';
 import { IRequest } from '../../types';
+import { formatPrice } from '../../utils';
 
 const Request = () => {
   const [requests, setRequests] = useState<IRequest[]>([]);
@@ -35,13 +36,7 @@ const Request = () => {
                   Data do pedido: <strong>{new Date(pedido.data).toLocaleDateString()}</strong>
                 </p>
                 <p>
-                  Valor total:{' '}
-                  <strong>
-                    {Intl.NumberFormat('pt-br', {
-                      style: 'currency',
-                      currency: 'brl',
-                    }).format(pedido.total)}
-                  </strong>
+                  Valor total: <strong>{formatPrice(pedido.total)}</strong>
                 </p>
                 <p>
                   Entrega realizada em: <strong>{pedido.entrega}</strong>

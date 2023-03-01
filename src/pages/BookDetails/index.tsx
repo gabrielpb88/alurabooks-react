@@ -15,6 +15,7 @@ import {
 import Loader from '../../components/Loader';
 import { AbOptionsGroup, AbAmountInput, AbButton } from 'alurabooks-ds-gb';
 import { useState } from 'react';
+import { formatPrice } from '../../utils';
 
 const BookDetails = () => {
   const params = useParams();
@@ -47,7 +48,7 @@ const BookDetails = () => {
                 options={data.opcoesCompra.map((opcao) => ({
                   id: opcao.id,
                   title: opcao.titulo,
-                  body: Intl.NumberFormat('pt-br', { style: 'currency', currency: 'brl' }).format(opcao.preco),
+                  body: formatPrice(opcao.preco),
                   footer: opcao.formatos ? opcao.formatos + '' : '',
                 }))}
               />

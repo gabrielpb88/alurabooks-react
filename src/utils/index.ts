@@ -6,3 +6,10 @@ export const getLowestPrice = (book: IBook): number => {
     book.opcoesCompra[0].preco,
   );
 };
+
+export const formatPrice = (value: number) => {
+  return Intl.NumberFormat('pt-br', {
+    style: 'currency',
+    currency: 'brl',
+  }).format(value);
+};
