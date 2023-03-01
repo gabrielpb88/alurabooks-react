@@ -1,10 +1,10 @@
 import { useParams } from 'react-router-dom';
-import MainTitle from '../MainTitle';
+import MainTitle from 'components/MainTitle';
 import { useQuery } from 'react-query';
 import { getCategoryBySlug } from '../../http';
-import Loader from '../Loader';
+import Loader from 'components/Loader';
 import { LoaderWrapper } from './styles';
-import ListBooks from '../ListBooks';
+import ListBooks from 'components/ListBooks';
 
 const Category = () => {
   const params = useParams();

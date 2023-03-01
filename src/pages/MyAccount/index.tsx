@@ -1,5 +1,5 @@
 import { NavLink, Outlet } from 'react-router-dom';
-import { AccountWrapper, Head, List, Section } from './MyAccount.styles';
+import { AccountWrapper, Head, List, Section } from './styles';
 
 const MyAccount = () => {
   return (
