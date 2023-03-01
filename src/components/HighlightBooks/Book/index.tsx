@@ -1,6 +1,7 @@
 import { ButtonWrapper, CardDescription, CardEm, CardPrice, CardTitle, Footer, H4 } from './styles';
 import { AbButton } from 'alurabooks-ds-gb';
 import { IBook } from '../../../types';
+import { getLowestPrice } from 'utils';
 
 export interface BookProps {
   book: IBook;
@@ -16,7 +17,7 @@ const Book = ({ book }: BookProps) => (
       <div>
         <CardEm>A partir de:</CardEm>
         <CardPrice>
-          {Intl.NumberFormat('pt-br', { style: 'currency', currency: 'brl' }).format(book.opcoesCompra[0].preco)}
+          {Intl.NumberFormat('pt-br', { style: 'currency', currency: 'brl' }).format(getLowestPrice(book))}
         </CardPrice>
       </div>
       <ButtonWrapper>
