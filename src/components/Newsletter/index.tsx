@@ -1,5 +1,5 @@
 import { AbTextField } from 'alurabooks-ds-gb';
-import { ContentWrapper, NewsletterWrapper } from './Newsletter.styles';
+import { ContentWrapper, NewsletterWrapper } from './styles';
 import { useState } from 'react';
 
 const Newsletter = () => {

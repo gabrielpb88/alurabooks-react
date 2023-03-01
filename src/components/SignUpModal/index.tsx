@@ -1,7 +1,7 @@
 import { AbButton, AbModal, AbTextField } from 'alurabooks-ds-gb';
 import signup from '../../assets/signup.svg';
 import { useState } from 'react';
-import { ButtonWrapper, FormWrapper, Logo, LogoWrapper, ModalContentWrapper } from './SignUpModal.styles';
+import { ButtonWrapper, FormWrapper, Logo, LogoWrapper, ModalContentWrapper } from './styles';
 import { http } from '../../http';
 
 interface SignUpModalProps {

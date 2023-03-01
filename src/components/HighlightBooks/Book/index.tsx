@@ -1,4 +1,4 @@
-import { ButtonWrapper, CardDescription, CardEm, CardPrice, CardTitle, Footer, H4 } from './Book.styles';
+import { ButtonWrapper, CardDescription, CardEm, CardPrice, CardTitle, Footer, H4 } from './styles';
 import { AbButton } from 'alurabooks-ds-gb';
 import { IBook } from '../../../types';
 

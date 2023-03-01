@@ -1,5 +1,5 @@
 import { AbButton } from 'alurabooks-ds-gb';
-import { ButtonWrapper, H2, Hr, PageWrapper, RequestsWrapper, RequestWrapper } from './Request.styles';
+import { ButtonWrapper, H2, Hr, PageWrapper, RequestsWrapper, RequestWrapper } from './styles';
 import { useEffect, useState } from 'react';
 import { http } from '../../http';
 import { IRequest } from '../../types';

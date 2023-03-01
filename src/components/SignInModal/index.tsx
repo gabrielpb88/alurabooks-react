@@ -1,7 +1,7 @@
 import { AbButton, AbModal, AbTextField } from 'alurabooks-ds-gb';
 import signup from '../../assets/signup.svg';
 import { FormEvent, useState } from 'react';
-import { FormWrapper, InputsWrapper, ModalContentWrapper, ModalFooter } from './SignIModal.styles';
+import { FormWrapper, InputsWrapper, ModalContentWrapper, ModalFooter } from './styles';
 import { Link } from 'react-router-dom';
 import { http } from '../../http';
 import { useSaveToken } from '../../hooks';

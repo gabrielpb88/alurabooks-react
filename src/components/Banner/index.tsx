@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { StyledBanner, SubTitle, Title } from './Banner.styles';
+import { StyledBanner, SubTitle, Title } from './styles';
 
 export interface BannerProps {
   titulo?: string;

@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { Button } from './NavigationButton.styles';
+import { Button } from './styles';
 
 interface NavigationButtonProps {
   imgSrc?: string;

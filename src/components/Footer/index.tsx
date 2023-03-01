@@ -17,7 +17,7 @@ import carreiraSemFronteira from 'assets/icons/CarreiraSemFronteira.svg';
 import likeABoss from 'assets/icons/LikeABoss.svg';
 import layersTech from 'assets/icons/LayersTech.svg';
 import scubaDev from 'assets/icons/ScubaDev.svg';
-import { H2, List, StyledFooter } from './Footer.styles';
+import { H2, List, StyledFooter } from './styles';
 
 export const Footer = () => (
   <StyledFooter className="rodapé">

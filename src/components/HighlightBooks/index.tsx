@@ -1,4 +1,4 @@
-import { Section, Image, Books } from './HighlightBooks.styles';
+import { Section, Image, Books } from './styles';
 import { IBook } from '../../types';
 import { useState } from 'react';
 import { AbCard } from 'alurabooks-ds-gb';

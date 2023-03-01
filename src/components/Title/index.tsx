@@ -1,4 +1,4 @@
-import { StyledTitle } from './Title.styles';
+import { StyledTitle } from './styles';
 import { ReactNode } from 'react';
 
 interface TitleProps {

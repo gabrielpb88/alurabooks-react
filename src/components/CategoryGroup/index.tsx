@@ -1,5 +1,5 @@
 import { AbTag } from 'alurabooks-ds-gb';
-import { CategoriesWrapper, CategoryGroupWrapper, Title } from './Category.styles';
+import { CategoriesWrapper, CategoryGroupWrapper, Title } from './styles';
 
 interface CategoryGroupProps {
   categories: string[];
