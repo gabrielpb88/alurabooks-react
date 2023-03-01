@@ -4,6 +4,7 @@ import { IBook } from '../../../types';
 import { formatPrice, getLowestPrice } from 'utils';
 import { useQuery } from 'react-query';
 import { getAuthor } from '../../../http';
+import { useNavigate } from 'react-router-dom';
 
 export interface BookProps {
   book: IBook;
@@ -11,6 +12,7 @@ export interface BookProps {
 
 const Book = ({ book }: BookProps) => {
   const { data: author } = useQuery(['getAuthor', book.autor], () => getAuthor(book.autor));
+  const navigate = useNavigate();
 
   return (
     <>
@@ -24,7 +26,7 @@ const Book = ({ book }: BookProps) => {
           <CardPrice>{formatPrice(getLowestPrice(book))}</CardPrice>
         </div>
         <ButtonWrapper>
-          <AbButton>Comprar</AbButton>
+          <AbButton onClick={() => navigate(`/livros/${book.id}`)}>Comprar</AbButton>
         </ButtonWrapper>
       </Footer>
     </>

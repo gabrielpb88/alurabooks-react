@@ -4,7 +4,7 @@ import DefaultPage from './pages/DefaultPage';
 import Home from './pages/Home';
 import MyAccount from './pages/MyAccount';
 import Request from './pages/Request';
-import Category from './components/Category';
+import Category from './pages/Category';
 import BookDetails from './pages/BookDetails';
 
 function AppRouter() {
